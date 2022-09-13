@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="number" id="number">
+    <button onclick="checkNum()">Kiem tra</button>
+
+    <p id="result">Kết quả: </p>
+</body>
+<script>
+    let result;
+    function checkNum() {
+        let number = document.getElementById("number").value;
+        if (number <= 2) {
+            result = "Khong phai so nguyen to";
+        }
+        else {
+            for (let i = 2; i < number; i++) {
+                if (number % i == 0) {
+                    result = "Khong phai so nguyen to";
+                    break;
+                }
+                else {
+                    result = "La so nguyen to";
+                }
+            }
+        }
+        document.getElementById("result").innerHTML = "Kết quả: " + result;
+    }
+  
+
+
+</script>
+
+</html>

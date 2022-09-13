@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chuyển đổi nhiệt độ</h1>
+    <p>Chọn nhiệt độ theo độ F chuyển đổi sang độ C</p>
+    Fahrenheit   <input type="number" placeholder="Fahrenheit" name="" id="input" onchange="convertTemperature(this.value)" oninput="convertTemperature(this.value)">
+    <p id="result">Celcius: </p>
+</body>
+<script>
+    function convertTemperature(fahrenheit){
+        let celcius = (parseFloat(fahrenheit) - 32)/1.8;
+        document.getElementById("result").innerHTML = "Celcius: " + celcius + " độ C";
+    }
+</script>
+</html>

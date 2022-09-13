@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Add New Product</h2>
+    <div>
+        <input type="text" id="add">
+        <button onclick="addProduct()">Them SP</button>
+        <br>
+        <h2>Display All Product</h2>
+        <input type="text" id="name">
+        <button onclick="searchProduct()">Tim kiem</button>
+        <br>
+        <br>
+        <table style="border: solid" width="800px">
+            <tr>
+                <th style="border: solid">Tên SP</th>
+                <th style="border: solid">Sửa SP</th>
+                <th style="border: solid">Xóa SP</th>
+            </tr>
+            <tbody id="list">
+                <tr>
+                    <td></td>
+                    <td><button onclick="editProduct()">Edit</button></td>
+                    <td><button onclick="deleteProduct()">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+<script>
+    let listProduct = ["Motor", "Arduino", "Cam bien sieu am", "Cam bien hong ngoai", "Mach dieu khien dong co", "Servo"];
+    //Ham Show san pham
+    function showAllProduct() {
+        let allProduct = " ";
+        for (let i = 0; i < listProduct.length; i++) {
+
+            allProduct += `<tr>
+                <td style="border: solid">${listProduct[i]}</td>
+                <td style="border: solid"><button onclick="editProduct(${i})">Edit</button></td>
+                <td style="border: solid"><button onclick="deleteProduct(${i})">Delete</button></td>
+            </tr>`;
+
+        }
+
+        document.getElementById("list").innerHTML = allProduct;
+    }
+    showAllProduct();
+    //Ham them san pham
+    function addProduct(){
+        let addProduct = document.getElementById("add").value;
+        listProduct.push(addProduct);
+        showAllProduct();
+    }
+    //Ham sua san pham
+    function editProduct(i){
+        let editProduct =  prompt("Nhap ten san pham");
+        listProduct[i] = editProduct;
+        showAllProduct();
+    }
+    //Ham xoa san pham
+    function deleteProduct(i){
+        listProduct.splice(i,1);
+        showAllProduct();
+    }
+    //Ham tim kiem san pham
+    function searchProduct(){
+        let name =  document.getElementById("name").value;
+        let allProduct = " ";
+        for(let i=0;i<listProduct.length;i++){
+            if(listProduct[i].search(name) != -1){
+                allProduct += `<tr>
+                <td style="border: solid">${listProduct[i]}</td>
+                <td style="border: solid"><button onclick="editProduct(${i})">Edit</button></td>
+                <td style="border: solid"><button onclick="deleteProduct(${i})">Delete</button></td>
+            </tr>`;
+            }
+        }
+        document.getElementById("list").innerHTML = allProduct;
+    }
+</script>
+
+</html>

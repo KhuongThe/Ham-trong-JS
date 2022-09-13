@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    let str = prompt("Nhap chuoi");
+    let storage;
+    function reverseArray(array) {
+        let arr = Array.from(array);
+        let i = 0;
+        let j = arr.length - 1;
+        while (i <= j) {
+            storage = arr[i];
+            arr[i] = arr[j];
+            arr[j] = storage;
+            i++;
+            j--;
+        }
+        let arr1 = arr.join("");
+        return arr1;
+    }
+    let result = reverseArray(str);
+    alert(result);
+</script>
+
+</html>

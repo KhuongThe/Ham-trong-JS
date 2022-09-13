@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    let a = +prompt("Hay Nhap so thu 1");
+    let b = +prompt("Hay Nhap so thu 2");
+    let c = +prompt("Hay Nhap so thu 3");
+    function findMin(x, y, z) {
+        if (x <= y && y <= z) {
+            return x;
+        }
+        else if (x <= y && x <= z) {
+            return x;
+        }
+        else if (x <= z && z <= y) {
+            return x;
+        }
+        else if (x <= z && x <= y) {
+            return x;
+        }
+        else if (y <= x && y <= z) {
+            return y;
+        }
+        else if (y <= x && x <= z) {
+            return y;
+        }
+        else if (y <= z && y <= x) {
+            return y;
+        }
+        else if (y <= z && z <= x) {
+            return y;
+        }
+        else if (z <= x && x <= y) {
+            return z;
+        }
+        else if (z <= x && z <= y) {
+            return z;
+        }
+        else if (z <= y && y <= x) {
+            return z;
+        }
+        else {
+            return z;
+        }
+    }
+    let result = findMin(a, b, c);
+    alert(result);
+</script>
+
+</html>

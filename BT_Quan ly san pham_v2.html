@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+       
+    <meta charset="UTF-8">
+       
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+</head>
+
+<body>
+        <h2>Add New Product</h2>
+        <div>
+                <input type="text" id="addpro">
+                <button onclick="addListproduct()">Add</button>
+                <br>
+                <h2>Display All Product</h2>
+                <input type="text" id="search">
+                <button onclick="searchProduct()">Search</button>
+                <br>
+                <div id="product">
+
+                    </div>
+            </div>
+</body>
+<script>
+    let arr = ["Le", "Xoai", "Tao", "Oi", "Dua Hau", "Cam", "Nho", "Măng Cụt", "Sầu Riêng"];
+    //Ham Show danh sach SP
+    function showListproduct() {
+        let a = "<table border= solid width=800px>" + "<th width = 500px > " + "Product" + "</th> " + " <th> " + "Edit" + "</th> " + " <th> " + "Delete" + "</th>"
+        for (let i = 0; i < arr.length; i++) {
+            a = a + "<tr>" + "<td>" + arr[i] + "</td>" + "<td>" +
+                "<button onclick='editProduct(" + i + ")'>Edit</button>" + "</td>" +
+                "<td>" + "<button onclick='deleteProduct(" + i + ")'>Delete</button>" +
+                "</td>" + "</tr>";
+        }
+        a = a + "</table>";
+        document.getElementById("product").innerHTML = a;
+    }
+    showListproduct();
+    //Ham them SP vao Danh sach
+    function addListproduct() {
+        let addProduct = document.getElementById("addpro").value;
+        arr.push(addProduct);
+        showListproduct();
+    }
+    //Ham xoa SP
+    function deleteProduct(i) {
+        arr.splice(i, 1);
+        showListproduct();
+    }
+    //Ham sua SP
+    function editProduct(i) {
+        arr[i] = prompt("Nhap ten SP ban muon sua");
+        showListproduct();
+    }
+    //Ham tim kiem
+    function searchProduct() {
+        let name = document.getElementById("search").value;
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] == name) {
+                let a = "<table border= solid width=800px>" + "<th width = 500px > " + "Product" + "</th > " + " <th> " + "Edit" + "</th > " + " <th> " + "Delete" + "</th>"
+
+                a = a + "<tr>" + "<td>" + arr[i] + "</td>" + "<td>" +
+                    "<button onclick='editProduct(" + i + ")'>Edit</button>" + "</td>" +
+                    "<td>" + "<button onclick='deleteProduct(" + i + ")'>Delete</button>" +
+                    "</td>" + "</tr>";
+
+                a = a + "</table>";
+                document.getElementById("product").innerHTML = a;
+            }
+        }
+    }
+</script>
+
+</html>

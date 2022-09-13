@@ -1,0 +1,39 @@
+function checkNumber(arr2) {
+    let check = true;
+    for (let j = 0; j < arr2.length; j++) {
+        for (let i = 0; i < 10; i++) {
+            if (parseInt(arr2[j]) != arr1[i]) {
+                check = false;
+            }
+            else {
+                check = true;
+            }
+        }
+    }
+    return check;
+}
+
+
+
+
+
+let arr1 = [];
+for (let i = 0; i < 10; i++) {
+    arr1[i] = i;
+}
+let input = prompt("Moi nhap ky tu");
+let arr2 = Array.from(input);
+for (let j = 0; j < arr2.length; j++) {
+    alert(arr2[j]);
+    
+}
+let check;
+function checkNumber(array) {
+    
+  if(array[0] == 5){
+    alert("0000");
+  }
+}
+
+let result = checkNumber(arr2);
+alert(result);
